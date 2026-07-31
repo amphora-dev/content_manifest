@@ -17,13 +17,13 @@
     },
     "box64": {
       "assetPath": "Box64-0.4.3-0f6b8ccc6.wcp",
-      "sha256": "feec914bf7f93513d340ee2c39dd971d59614138472621a1931532fe3d352f50",
+      "sha256": "97047788b3978c354127adbac3f418fbe6192c40a330d015d3615c0182e7e8a9",
       "version": "Box64-0.4.3-0f6b8ccc6-0",
       "kind": "WCP",
       "contentType": "Box64",
       "verName": "0.4.3-0f6b8ccc6",
       "verCode": 0,
-      "size": 2692656,
+      "size": 2700448,
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/box64/Box64-0.4.3-0f6b8ccc6.wcp"
     },
     "turnip": {
