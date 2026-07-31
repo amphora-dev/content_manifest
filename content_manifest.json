@@ -16,14 +16,15 @@
       "size": 168648366
     },
     "box64": {
-      "assetPath": "Box64-0.4.3-c08554e3f.wcp",
-      "sha256": "e78d0ecf26768dc7504a81648f14c907a1217908b93f02c5a7f0162249eafba6",
-      "version": "Box64-0.4.3-c08554e3f-0",
+      "assetPath": "Box64-0.4.3-0f6b8ccc6.wcp",
+      "sha256": "223600ef133f1bbb9bfffc0b8682414942984caa74814af6323ca56360bef6ee",
+      "version": "Box64-0.4.3-0f6b8ccc6-0",
       "kind": "WCP",
       "contentType": "Box64",
-      "verName": "0.4.3-c08554e3f",
+      "verName": "0.4.3-0f6b8ccc6",
       "verCode": 0,
-      "size": 2849816
+      "size": 2694248,
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/box64/Box64-0.4.3-0f6b8ccc6.wcp"
     },
     "turnip": {
       "assetPath": "graphics_driver/wrapper.tzst",
