@@ -28,12 +28,12 @@
     },
     "turnip": {
       "assetPath": "graphics_driver/wrapper.tzst",
-      "sha256": "bb26740f75a762448b7283f0b9fa2fe2c203cf6462fb8892e16b193493d6208d",
+      "sha256": "604f064d8a7a12f1c0ae23c78c168d8ae3271b879ba29597be3e9978a7bb9c6f",
       "version": "25.0.0-devel-7eae6442f",
       "kind": "ARCHIVE",
       "compression": "zstd",
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wrapper/wrapper-7eae6442f.tzst",
-      "size": 653612
+      "size": 639606
     },
     "dxvk": {
       "assetPath": "Dxvk-2.7.1-gplasync.wcp",
@@ -69,9 +69,9 @@
   "runtimeAssets": [
     {
       "assetPath": "graphics_driver/wrapper.tzst",
-      "sha256": "bb26740f75a762448b7283f0b9fa2fe2c203cf6462fb8892e16b193493d6208d",
+      "sha256": "604f064d8a7a12f1c0ae23c78c168d8ae3271b879ba29597be3e9978a7bb9c6f",
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wrapper/wrapper-7eae6442f.tzst",
-      "size": 653612
+      "size": 639606
     },
     {
       "assetPath": "graphics_driver/extra_libs.tzst",
