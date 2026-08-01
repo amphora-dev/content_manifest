@@ -36,14 +36,15 @@
       "size": 3816921
     },
     "dxvk": {
-      "assetPath": "Dxvk-3.0.2-gplasync.wcp",
-      "sha256": "4a9f8a8c96c34745a576c0e9289dcc453adb8888a22e42ddabed1f2723f7d2f1",
-      "version": "DXVK-3.0.2-gplasync-0",
+      "assetPath": "Dxvk-2.4.1-a6xx-fix.wcp",
+      "sha256": "b011c06a50901916f20c93a42eedea8aa00ee14fb319a7777a12d0327f4df849",
+      "version": "DXVK-2.4.1-fix-1",
       "kind": "WCP",
       "contentType": "DXVK",
-      "verName": "3.0.2-gplasync",
-      "verCode": 0,
-      "size": 6741148
+      "verName": "2.4.1-fix",
+      "verCode": 1,
+      "remoteUrl": "https://github.com/nicholasx417/WinNative-Components/releases/download/Stable-Dxvk/Dxvk-2.4.1-a6xx-fix.wcp",
+      "size": 8924613
     },
     "vkd3d": {
       "assetPath": "Vkd3d-3.0.1-S6_9.wcp",
