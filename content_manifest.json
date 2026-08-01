@@ -58,12 +58,12 @@
     },
     "rootfs": {
       "assetPath": "imagefs.txz",
-      "sha256": "1a51f8f7039a1e3b005297250d38b8dab52dcd698b35d30fdeb3d4e21c037844",
-      "version": "27",
+      "sha256": "f66f227f17cf12fdc1d01cd04d7f0b758387a3cb72943743b5dea36ab0b8ff82",
+      "version": "28",
       "kind": "ROOTFS",
       "compression": "xz",
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/amphora/imagefs.txz",
-      "size": 9814876
+      "size": 9821240
     }
   },
   "runtimeAssets": [
