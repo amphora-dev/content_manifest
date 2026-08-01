@@ -1,5 +1,5 @@
 {
-  "$comment": "Remote-only content pin file (NOT packaged into the APK). Fetched at runtime from GitHub main. Each entry maps a ComponentId to a remote asset, pinned SHA-256, version, and kind. ARCHIVE/WCP install under filesDir; ROOTFS is owned by RootfsInstaller. imagefs CI rewrites components.rootfs after each Release publish.",
+  "$comment": "Remote-only content pin file (NOT packaged into the APK). Fetched at runtime from GitHub main. components[] maps a ComponentId to a remote asset that ContentSource resolves; runtimeAssets[] are kernel-direct files that RuntimeAssetProvisioner puts under filesDir/runtime-assets/. A file belongs to exactly one of the two — graphics_driver/wrapper.tzst used to be in both and the copies drifted. imagefs CI rewrites components.rootfs and the wrapper runtimeAssets entry after each Release publish.",
   "version": 1,
   "source": "docs/04-ASSET-MANIFEST.md",
   "wcpCatalogUrl": "https://raw.githubusercontent.com/nicholasx417/WinNative-Components/main/default.json",
@@ -25,15 +25,6 @@
       "verCode": 0,
       "size": 2838544,
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/box64/Box64-0.4.3-78383901f.wcp"
-    },
-    "turnip": {
-      "assetPath": "graphics_driver/wrapper.tzst",
-      "sha256": "19518233a8209c644831c05bce592045d9ddc6f4399c79b82b1288c022cdc78f",
-      "version": "25.0.0-devel-7eae6442f",
-      "kind": "ARCHIVE",
-      "compression": "zstd",
-      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wrapper/wrapper-7eae6442f.tzst",
-      "size": 674562
     },
     "dxvk": {
       "assetPath": "Dxvk-2.7.1-gplasync.wcp",

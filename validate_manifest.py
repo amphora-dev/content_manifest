@@ -4,11 +4,15 @@
 Every rule here corresponds to a failure mode that only shows up on a device,
 usually after an automated pin bump:
 
+* a component the engine resolves by name goes missing, or is misspelled (the
+  app skips keys it does not recognise, so a typo would look like a clean parse
+  and fail later as a missing component);
 * a component without a pinned SHA-256 downloads unverified;
 * a non-WCP component without a remoteUrl throws in RemoteUrlResolver;
-* graphics_driver/wrapper.tzst is pinned twice -- once as components.turnip and
-  once in runtimeAssets[] -- and the two halves have drifted apart before
-  (amphora-dev/imagefs "sync runtimeAssets when bumping turnip/wrapper pin").
+* the same file is pinned in both components[] and runtimeAssets[]. This is how
+  graphics_driver/wrapper.tzst used to be pinned, and the two halves drifted
+  apart. Its components.turnip copy has since been removed; the check stays so
+  the arrangement cannot come back.
 
 Usage: python3 validate_manifest.py [content_manifest.json]
 """
@@ -24,6 +28,11 @@ from pathlib import Path
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 KINDS = {"WCP", "ARCHIVE", "ROOTFS"}
 COMPRESSIONS = {"zstd", "xz"}
+
+# Amphora's ContentComponent enum. The app skips component keys it does not
+# recognise so that adding one here cannot brick installed builds -- which means
+# a misspelled key is silent on the device and has to be caught here instead.
+KNOWN_COMPONENTS = {"rootfs", "wine", "box64", "dxvk", "vkd3d"}
 
 # Fields that must agree when the same assetPath is pinned in both sections.
 SHARED_FIELDS = ("sha256", "remoteUrl", "size")
@@ -156,6 +165,12 @@ def main(argv: list[str]) -> int:
     components = manifest.get("components")
     if report.check(isinstance(components, dict) and bool(components),
                     "components must be a non-empty object"):
+        report.check(
+            set(components) == KNOWN_COMPONENTS,
+            f"components must be exactly {sorted(KNOWN_COMPONENTS)}; "
+            f"unexpected={sorted(set(components) - KNOWN_COMPONENTS)} "
+            f"missing={sorted(KNOWN_COMPONENTS - set(components))}",
+        )
         for name, entry in components.items():
             if report.check(isinstance(entry, dict), f"components.{name} must be an object"):
                 validate_component(report, name, entry)
