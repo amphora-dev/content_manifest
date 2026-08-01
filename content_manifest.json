@@ -28,12 +28,12 @@
     },
     "turnip": {
       "assetPath": "graphics_driver/wrapper.tzst",
-      "sha256": "2651fbe6372af36c7d269664416b4f62d959125122ad3b8f79a787788e510fd8",
-      "version": "1",
+      "sha256": "718b6b22647d1246da5cd524c4b1c41933b44a71cbe41e5ab19f43ad22850ce9",
+      "version": "2",
       "kind": "ARCHIVE",
       "compression": "zstd",
-      "remoteUrl": "https://raw.githubusercontent.com/WinNative-Emu/WinNative/48fe6b9b6fda36512a30950df255eed99e175de1/app/src/main/assets/graphics_driver/wrapper.tzst",
-      "size": 3816921
+      "remoteUrl": "https://raw.githubusercontent.com/WinNative-Emu/WinNative/b488c9c5186a9b0675d83af59e7c8dadb325734a/app/src/main/assets/graphics_driver/wrapper.tzst",
+      "size": 3815368
     },
     "dxvk": {
       "assetPath": "Dxvk-2.7.1-gplasync.wcp",
