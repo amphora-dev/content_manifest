@@ -1,0 +1,20 @@
+# The imagefs CI bot pushes pin bumps straight to main, so validation has to run
+# on push (not only on pull requests) to catch a bad bump right where it lands.
+name: validate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content_manifest.json"
+      - "validate_manifest.py"
+      - ".github/workflows/validate.yml"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 validate_manifest.py
