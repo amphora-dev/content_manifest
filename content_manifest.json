@@ -1,5 +1,5 @@
 {
-  "$comment": "Remote-only content pin file (NOT packaged into the APK). Fetched at runtime from GitHub main. components[] maps a ComponentId to a remote asset that ContentSource resolves; runtimeAssets[] are kernel-direct files that RuntimeAssetProvisioner puts under filesDir/runtime-assets/. A file belongs to exactly one of the two — graphics_driver/wrapper.tzst used to be in both and the copies drifted. imagefs CI rewrites components.rootfs and the wrapper runtimeAssets entry after each Release publish.",
+  "$comment": "Remote-only content pin file (NOT packaged into the APK). Fetched at runtime from GitHub main. components[] maps a ComponentId to a remote asset that ContentSource resolves; runtimeAssets[] are kernel-direct files that RuntimeAssetProvisioner puts under filesDir/runtime-assets/. A file belongs to exactly one of the two \u2014 graphics_driver/wrapper.tzst used to be in both and the copies drifted. imagefs CI rewrites components.rootfs and the wrapper runtimeAssets entry after each Release publish.",
   "version": 1,
   "source": "docs/04-ASSET-MANIFEST.md",
   "wcpCatalogUrl": "https://raw.githubusercontent.com/nicholasx417/WinNative-Components/main/default.json",
@@ -49,12 +49,12 @@
     },
     "rootfs": {
       "assetPath": "imagefs.txz",
-      "sha256": "c0e299e92644bf9d7a65f6c46aa463c0058fad88c98fc2ac295a071125a93bfa",
-      "version": "30",
+      "sha256": "6274e75f39924cbd33b0869e79492c27979f1d08512b9d8f7f0b02b7282c5bc4",
+      "version": "31",
       "kind": "ROOTFS",
       "compression": "xz",
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/amphora/imagefs.txz",
-      "size": 12280376
+      "size": 12878188
     }
   },
   "runtimeAssets": [
