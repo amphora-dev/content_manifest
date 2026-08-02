@@ -1,19 +1,19 @@
 {
-  "$comment": "Remote-only content pin file (NOT packaged into the APK). Fetched at runtime from GitHub main. components[] maps a ComponentId to a remote asset that ContentSource resolves; runtimeAssets[] are kernel-direct files that RuntimeAssetProvisioner puts under filesDir/runtime-assets/. A file belongs to exactly one of the two \u2014 graphics_driver/wrapper.tzst used to be in both and the copies drifted. imagefs CI rewrites components.rootfs and the wrapper runtimeAssets entry after each Release publish.",
+  "$comment": "Remote-only content pin file (NOT packaged into the APK). Fetched at runtime from GitHub main. components[] maps a ComponentId to a remote asset that ContentSource resolves; runtimeAssets[] are kernel-direct files that RuntimeAssetProvisioner puts under filesDir/runtime-assets/. A file belongs to exactly one of the two — graphics_driver/wrapper.tzst used to be in both and the copies drifted. imagefs CI rewrites components.rootfs and the wrapper runtimeAssets entry after each Release publish.",
   "version": 1,
   "source": "docs/04-ASSET-MANIFEST.md",
   "wcpCatalogUrl": "https://raw.githubusercontent.com/nicholasx417/WinNative-Components/main/default.json",
   "components": {
     "wine": {
-      "assetPath": "Proton-10.0-4-x86_64.wcp",
-      "sha256": "e61d29be8c736abe13f662d33ff4b14fae2b7294b011283be53c8e33665d2b48",
-      "version": "Proton-10.0-4-x86_64-0",
+      "assetPath": "Proton-11.0-5-x86_64.wcp",
+      "sha256": "e5fa8a52306441741b707b8ebf7d0e2e2df30f46bfb18a68dfb81460a079f4b6",
+      "version": "Proton-11.0-5-x86_64-0",
       "kind": "WCP",
       "contentType": "Proton",
-      "verName": "10.0-4-x86_64",
+      "verName": "11.0-5-x86_64",
       "verCode": 0,
-      "remoteUrl": "https://github.com/nicholasx417/WinNative-Components/releases/download/Proton/Proton-10.0-4-x86_64.wcp",
-      "size": 168648366
+      "remoteUrl": "https://github.com/Xnick417x/winlator-nightly-wcp/releases/download/GameNative/Proton-11.0-5-x86_64.wcp",
+      "size": 151550112
     },
     "box64": {
       "assetPath": "Box64-0.4.3-78383901f.wcp",
