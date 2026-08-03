@@ -5,15 +5,15 @@
   "wcpCatalogUrl": "https://raw.githubusercontent.com/nicholasx417/WinNative-Components/main/default.json",
   "components": {
     "wine": {
-      "assetPath": "Proton-11.0-5-x86_64.wcp",
-      "sha256": "e5fa8a52306441741b707b8ebf7d0e2e2df30f46bfb18a68dfb81460a079f4b6",
-      "version": "Proton-11.0-5-x86_64-0",
+      "assetPath": "Proton-11-B5-x86-64-Steam.wcp",
+      "sha256": "3ce4af9892f8088f358f1dc85e75719e51822a806b687c8bbfd34ec4f93b396a",
+      "version": "Proton-11.0-b5-x86_64-0",
       "kind": "WCP",
       "contentType": "Proton",
-      "verName": "11.0-5-x86_64",
+      "verName": "11.0-b5-x86_64",
       "verCode": 0,
-      "remoteUrl": "https://github.com/Xnick417x/winlator-nightly-wcp/releases/download/GameNative/Proton-11.0-5-x86_64.wcp",
-      "size": 151550112
+      "remoteUrl": "https://github.com/nicholasx417/WinNative-Components/releases/download/Proton/Proton-11-B5-x86-64-Steam.wcp",
+      "size": 176214674
     },
     "box64": {
       "assetPath": "Box64-0.4.5-e0ae94d74.wcp",
