@@ -34,10 +34,6 @@ COMPRESSIONS = {"zstd", "xz"}
 # a misspelled key is silent on the device and has to be caught here instead.
 KNOWN_COMPONENTS = {"rootfs", "wine", "box64", "dxvk", "vkd3d"}
 
-# Fields that must agree when the same assetPath is pinned in both sections.
-SHARED_FIELDS = ("sha256", "remoteUrl", "size")
-
-
 class Report:
     def __init__(self) -> None:
         self.errors: list[str] = []
@@ -96,11 +92,10 @@ def validate_component(report: Report, name: str, entry: dict) -> None:
         )
 
     size = entry.get("size")
-    if size is not None:
-        report.check(
-            isinstance(size, int) and size > 0,
-            f"{where}: size must be a positive integer, got {size!r}",
-        )
+    report.check(
+        isinstance(size, int) and not isinstance(size, bool) and size > 0,
+        f"{where}: size is required and must be a positive integer, got {size!r}",
+    )
 
 
 def validate_runtime_asset(report: Report, index: int, entry: dict) -> None:
@@ -121,27 +116,24 @@ def validate_runtime_asset(report: Report, index: int, entry: dict) -> None:
     )
 
     size = entry.get("size")
-    if size is not None:
-        report.check(
-            isinstance(size, int) and size > 0,
-            f"{where}: size must be a positive integer, got {size!r}",
-        )
+    report.check(
+        isinstance(size, int) and not isinstance(size, bool) and size > 0,
+        f"{where}: size is required and must be a positive integer, got {size!r}",
+    )
 
 
 def validate_cross_section(report: Report, components: dict, runtime_assets: list) -> None:
-    """A file pinned in both sections must be pinned identically."""
-    by_path = {entry.get("assetPath"): entry for entry in runtime_assets}
+    """An asset must have exactly one owner/provisioning path."""
+    runtime_paths = {
+        entry.get("assetPath") for entry in runtime_assets if isinstance(entry, dict)
+    }
     for name, entry in components.items():
-        twin = by_path.get(entry.get("assetPath"))
-        if twin is None:
-            continue
-        for field in SHARED_FIELDS:
-            report.check(
-                entry.get(field) == twin.get(field),
-                f"components.{name} and runtimeAssets[] both pin "
-                f"{entry.get('assetPath')} but disagree on {field}: "
-                f"{entry.get(field)!r} != {twin.get(field)!r}",
-            )
+        asset_path = entry.get("assetPath")
+        report.check(
+            asset_path not in runtime_paths,
+            f"components.{name} and runtimeAssets[] both pin {asset_path}; "
+            "an asset must be provisioned by exactly one section",
+        )
 
 
 def main(argv: list[str]) -> int:

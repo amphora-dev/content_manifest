@@ -8,6 +8,7 @@ on:
     paths:
       - "content_manifest.json"
       - "validate_manifest.py"
+      - "test_validate_manifest.py"
       - ".github/workflows/validate.yml"
   pull_request:
   workflow_dispatch:
@@ -17,4 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: python3 -m unittest -v
       - run: python3 validate_manifest.py
