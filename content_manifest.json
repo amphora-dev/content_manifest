@@ -60,9 +60,9 @@
   "runtimeAssets": [
     {
       "assetPath": "graphics_driver/wrapper.tzst",
-      "sha256": "0775fc19306046fd5f3a18ca9d7edc3e740b6fa6236a3b5b828dc1ea8aa95f6e",
+      "sha256": "1f994b91c0df8918893327cc2929c13ee96afcd6610aeb25549999546b2e3ff2",
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wrapper/wrapper-7eae6442f.tzst",
-      "size": 674553
+      "size": 670132
     },
     {
       "assetPath": "adrenotools/WN-Turnip-1.06-b_Axxx.zip",
