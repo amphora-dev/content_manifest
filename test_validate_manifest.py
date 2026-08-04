@@ -6,7 +6,12 @@ import json
 import unittest
 from pathlib import Path
 
-from validate_manifest import Report, validate_component, validate_cross_section
+from validate_manifest import (
+    Report,
+    validate_component,
+    validate_cross_section,
+    validate_wcp_identity,
+)
 
 
 MANIFEST = json.loads(Path(__file__).with_name("content_manifest.json").read_text())
@@ -41,6 +46,21 @@ class ManifestValidationTest(unittest.TestCase):
         self.assertTrue(
             any("exactly one section" in error for error in report.errors)
         )
+
+    def test_wcp_version_must_match_identity_triplet(self) -> None:
+        entry = copy.deepcopy(MANIFEST["components"]["wine"])
+        entry["verCode"] = 0  # diverge from version string
+        report = Report()
+
+        validate_wcp_identity(report, "components.wine", entry)
+
+        self.assertTrue(any("contentType-verName-verCode" in error for error in report.errors))
+
+    def test_live_wine_pin_identity_is_consistent(self) -> None:
+        report = Report()
+        validate_wcp_identity(report, "components.wine", MANIFEST["components"]["wine"])
+        self.assertEqual(report.errors, [])
+
 
 
 if __name__ == "__main__":
