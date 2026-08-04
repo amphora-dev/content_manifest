@@ -3,8 +3,26 @@
 Remote pin file for Amphora. The app fetches
 `content_manifest.json` from this repository at runtime (no APK copy).
 
-- **Runtime URL:** `https://raw.githubusercontent.com/amphora-dev/content_manifest/main/content_manifest.json`
-- **Updated by:** `amphora-dev/imagefs` CI after each successful Release publish (`components.rootfs`, `components.box64`, and the `runtimeAssets[]` entry for `graphics_driver/wrapper.tzst`).
+- **Runtime URL (preferred):**
+  `https://cdn.jsdelivr.net/gh/amphora-dev/content_manifest@latest/content_manifest.json`
+- **Why `@latest`, not `@main`:** jsDelivr caches branch refs (`@main`) for up to
+  ~12 hours and **does not reliably purge them**. Semver tags + `@latest` are
+  what the purge API is designed for. Each pin bump on `main` cuts a patch tag
+  (`v0.1.0`, `v0.1.1`, …) and purges `@latest` in CI.
+- **Updated by:** `amphora-dev/imagefs` CI after each successful Release publish
+  (`components.rootfs`, `components.box64`, and the `runtimeAssets[]` entry for
+  `graphics_driver/wrapper.tzst`).
+
+## CDN publish
+
+On every `main` push that changes `content_manifest.json`,
+[`.github/workflows/validate.yml`](.github/workflows/validate.yml):
+
+1. validates the manifest
+2. creates the next `vMAJOR.MINOR.PATCH` tag on that commit
+3. purges `cdn.jsdelivr.net/...@latest/...` and `...@vX.Y.Z/...`
+
+Manual equivalent: `./scripts/tag-and-purge-jsdelivr.sh`
 
 ## Two sections, one home per file
 
