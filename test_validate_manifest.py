@@ -49,7 +49,9 @@ class ManifestValidationTest(unittest.TestCase):
 
     def test_wcp_version_must_match_identity_triplet(self) -> None:
         entry = copy.deepcopy(MANIFEST["components"]["wine"])
-        entry["verCode"] = 0  # diverge from version string
+        # Must diverge from whatever verCode the live pin currently uses
+        # (hardcoding 0 broke once wine was published with verCode=0).
+        entry["verCode"] = int(entry["verCode"]) + 1
         report = Report()
 
         validate_wcp_identity(report, "components.wine", entry)
