@@ -38,14 +38,15 @@
       "size": 4790112
     },
     "vkd3d": {
-      "assetPath": "Vkd3d-3.0.1-S6_9.wcp",
-      "sha256": "91fa02bfc6032dd847755477027e0a56a4ded92f1cb60da40f92a657d53e40c1",
-      "version": "VKD3D-3.0.1-sm69-0",
+      "assetPath": "Vkd3d-3.0.1-3b10bd7a7.wcp",
+      "sha256": "849f533fd2c0a50ca3185afddb6d469797f3b29cff79a2d6959ce532f929e54c",
+      "version": "VKD3D-3.0.1-3b10bd7a7-0",
       "kind": "WCP",
       "contentType": "VKD3D",
-      "verName": "3.0.1-sm69",
+      "verName": "3.0.1-3b10bd7a7",
       "verCode": 0,
-      "size": 3396516
+      "size": 3276904,
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/vkd3d/Vkd3d-3.0.1-3b10bd7a7.wcp"
     },
     "rootfs": {
       "assetPath": "imagefs.txz",
