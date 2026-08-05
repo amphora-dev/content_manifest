@@ -27,15 +27,15 @@
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/box64/Box64-0.4.5-0db8df775.wcp"
     },
     "dxvk": {
-      "assetPath": "Dxvk-2.7.1-gplasync.wcp",
-      "sha256": "98ea272155db7ae05c4f84d773244c83945c732590fedcca605e30f7ece13e13",
-      "version": "DXVK-2.7.1-gplasync-0",
+      "assetPath": "Dxvk-3.0.2-gplasync-6b20f622a.wcp",
+      "sha256": "045d07561a7868814ec5979620d6b4d7dbe63a60fb2454fccde131ce44e9f138",
+      "version": "DXVK-3.0.2-gplasync-6b20f622a-0",
       "kind": "WCP",
       "contentType": "DXVK",
-      "verName": "2.7.1-gplasync",
+      "verName": "3.0.2-gplasync-6b20f622a",
       "verCode": 0,
-      "remoteUrl": "https://github.com/nicholasx417/WinNative-Components/releases/download/Stable-Dxvk/Dxvk-2.7.1-gplasync.wcp",
-      "size": 4790112
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/dxvk/Dxvk-3.0.2-gplasync-6b20f622a.wcp",
+      "size": 8048148
     },
     "vkd3d": {
       "assetPath": "Vkd3d-3.0.1-3b10bd7a7.wcp",
