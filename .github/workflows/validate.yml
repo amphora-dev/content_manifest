@@ -9,6 +9,7 @@ on:
     branches: [main]
     paths:
       - "content_manifest.json"
+      - "app_update.json"
       - "validate_manifest.py"
       - "test_validate_manifest.py"
       - "scripts/**"
@@ -28,8 +29,30 @@ jobs:
           fetch-depth: 0
       - run: python3 -m unittest -v
       - run: python3 validate_manifest.py
+      - name: Validate app_update.json when present
+        run: |
+          set -euo pipefail
+          if [ ! -f app_update.json ]; then
+            echo "app_update.json not present yet; skip"
+            exit 0
+          fi
+          python3 - <<'PY'
+          import json, pathlib, sys
+          data = json.loads(pathlib.Path("app_update.json").read_text(encoding="utf-8"))
+          for key in ("versionCode", "versionName", "apkUrl", "sha256"):
+              if key not in data:
+                  raise SystemExit(f"app_update.json missing {key}")
+          if int(data["versionCode"]) <= 0:
+              raise SystemExit("versionCode must be positive")
+          if not str(data["apkUrl"]).startswith("https://"):
+              raise SystemExit("apkUrl must be HTTPS")
+          sha = str(data["sha256"]).lower()
+          if len(sha) != 64 or any(c not in "0123456789abcdef" for c in sha):
+              raise SystemExit("sha256 must be 64 hex chars")
+          print(f"ok app_update.json versionCode={data['versionCode']}")
+          PY
 
-  # Only on main pushes (imagefs bot pin bumps). PRs stop at validate.
+  # Only on main pushes (imagefs / amphora bot pin bumps). PRs stop at validate.
   publish-cdn:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: validate
@@ -69,14 +92,20 @@ jobs:
           set -euo pipefail
           TAG="${{ steps.tag.outputs.tag }}"
           # Public purge endpoint. Officially reliable for semver/@latest, not @main.
-          for path in \
-            "gh/amphora-dev/content_manifest@latest/content_manifest.json" \
+          paths=(
+            "gh/amphora-dev/content_manifest@latest/content_manifest.json"
             "gh/amphora-dev/content_manifest@${TAG}/content_manifest.json"
-          do
+          )
+          if [ -f app_update.json ]; then
+            paths+=(
+              "gh/amphora-dev/content_manifest@latest/app_update.json"
+              "gh/amphora-dev/content_manifest@${TAG}/app_update.json"
+            )
+          fi
+          for path in "${paths[@]}"; do
             echo "purging https://cdn.jsdelivr.net/${path}"
             curl -fsS "https://purge.jsdelivr.net/${path}" | tee /tmp/purge.json
             echo
-            # x-jsd-version should become the new tag after a successful purge+fetch.
           done
           sleep 2
           HDR="$(curl -fsSI "https://cdn.jsdelivr.net/gh/amphora-dev/content_manifest@latest/content_manifest.json" || true)"

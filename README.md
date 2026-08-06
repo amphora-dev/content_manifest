@@ -13,12 +13,20 @@ Remote pin file for Amphora. The app fetches
   (`components.rootfs`, `components.box64`, and the `runtimeAssets[]` entry for
   `graphics_driver/wrapper.tzst`).
 
+## App update pin
+
+`app_update.json` is the APK auto-update pin (versionCode / apkUrl / sha256).
+Amphora CI on `main` publishes `amphora-debug.apk` to the rolling Release tag
+`apk` on `amphora-dev/amphora`, then writes this file. Runtime URL:
+
+`https://cdn.jsdelivr.net/gh/amphora-dev/content_manifest@latest/app_update.json`
+
 ## CDN publish
 
-On every `main` push that changes `content_manifest.json`,
+On every `main` push that changes `content_manifest.json` or `app_update.json`,
 [`.github/workflows/validate.yml`](.github/workflows/validate.yml):
 
-1. validates the manifest
+1. validates the manifest (and `app_update.json` when present)
 2. creates the next `vMAJOR.MINOR.PATCH` tag on that commit
 3. purges `cdn.jsdelivr.net/...@latest/...` and `...@vX.Y.Z/...`
 
