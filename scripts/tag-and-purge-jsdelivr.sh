@@ -27,12 +27,15 @@ fi
 
 for path in \
   "gh/amphora-dev/content_manifest@latest/content_manifest.json" \
-  "gh/amphora-dev/content_manifest@${NEXT}/content_manifest.json"
+  "gh/amphora-dev/content_manifest@${NEXT}/content_manifest.json" \
+  "gh/amphora-dev/content_manifest@latest/app_update.json" \
+  "gh/amphora-dev/content_manifest@${NEXT}/app_update.json"
 do
   echo "purging https://cdn.jsdelivr.net/${path}"
-  curl -fsS "https://purge.jsdelivr.net/${path}"
+  curl -fsS "https://purge.jsdelivr.net/${path}" || true
   echo
 done
 
 echo "done. Amphora should use:"
 echo "  https://cdn.jsdelivr.net/gh/amphora-dev/content_manifest@latest/content_manifest.json"
+echo "  https://cdn.jsdelivr.net/gh/amphora-dev/content_manifest@latest/app_update.json"
