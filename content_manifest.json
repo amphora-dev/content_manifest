@@ -178,6 +178,12 @@
       "sha256": "d2aea34321200dd07a979a83c329da207d67af8e72fa182c307a39257d5e1d5b",
       "remoteUrl": "https://raw.githubusercontent.com/WinNative-Emu/WinNative/48fe6b9b6fda36512a30950df255eed99e175de1/app/src/main/assets/ddrawrapper/cnc-ddraw.tzst",
       "size": 173333
+    },
+    {
+      "assetPath": "ddrawrapper/d7vk.zip",
+      "sha256": "bc64c87a3839e4e1cda66a1bca13d7ed41e5ca7567dec691919646ff340198df",
+      "remoteUrl": "https://github.com/WinterSnowfall/d7vk/releases/download/v2.0/d7vk-v2.0.zip",
+      "size": 3383856
     }
   ]
 }
