@@ -52,9 +52,14 @@ jobs:
           print(f"ok app_update.json versionCode={data['versionCode']}")
           PY
 
-  # Only on main pushes (imagefs / amphora bot pin bumps). PRs stop at validate.
+  # Tag + purge on main pushes and manual dispatch. Bot pushes from amphora CI
+  # often fail to schedule this workflow, so amphora also `gh workflow run`s it;
+  # without dispatch support here, @latest never advances for app_update.json.
+  # PRs stop at validate.
   publish-cdn:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     needs: validate
     runs-on: ubuntu-latest
     steps:
