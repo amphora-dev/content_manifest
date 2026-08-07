@@ -52,9 +52,9 @@ jobs:
           print(f"ok app_update.json versionCode={data['versionCode']}")
           PY
 
-  # Tag + purge on main pushes and manual dispatch. Bot pushes from amphora CI
-  # often fail to schedule this workflow, so amphora also `gh workflow run`s it;
-  # without dispatch support here, @latest never advances for app_update.json.
+  # Tag + purge on main pushes and manual maintenance dispatches. Amphora CI
+  # only commits app_update.json here; this repository owns the sole CDN purge
+  # path so one update cannot trigger duplicate jsDelivr requests.
   # PRs stop at validate.
   publish-cdn:
     if: >-
