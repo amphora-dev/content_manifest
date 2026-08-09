@@ -4,11 +4,10 @@ Remote pin file for Amphora. The app fetches
 `content_manifest.json` from this repository at runtime (no APK copy).
 
 - **Runtime URL (preferred):**
-  `https://cdn.jsdelivr.net/gh/amphora-dev/content_manifest@latest/content_manifest.json`
-- **Why `@latest`, not `@main`:** jsDelivr caches branch refs (`@main`) for up to
-  ~12 hours and **does not reliably purge them**. Semver tags + `@latest` are
-  what the purge API is designed for. Each pin bump on `main` cuts a patch tag
-  (`v0.1.0`, `v0.1.1`, …) and purges `@latest` in CI.
+  `https://api.github.com/repos/amphora-dev/content_manifest/contents/content_manifest.json?ref=main`
+- **Fallback:** GitHub raw `main`. The Contents API is preferred because raw/CDN
+  branch content can remain cached after a pin update. Development devices may
+  retry on transient API failures or rate limiting.
 - **Updated by:** `amphora-dev/imagefs` CI after each successful Release publish
   (`components.rootfs`, `components.box64`, and the `runtimeAssets[]` entry for
   `graphics_driver/wrapper.tzst`).
@@ -19,18 +18,13 @@ Remote pin file for Amphora. The app fetches
 Amphora CI on `main` publishes `amphora-debug.apk` to the rolling Release tag
 `apk` on `amphora-dev/amphora`, then writes this file. Runtime URL:
 
-`https://cdn.jsdelivr.net/gh/amphora-dev/content_manifest@latest/app_update.json`
+`https://api.github.com/repos/amphora-dev/content_manifest/contents/app_update.json?ref=main`
 
-## CDN publish
+## Validation
 
 On every `main` push that changes `content_manifest.json` or `app_update.json`,
-[`.github/workflows/validate.yml`](.github/workflows/validate.yml):
-
-1. validates the manifest (and `app_update.json` when present)
-2. creates the next `vMAJOR.MINOR.PATCH` tag on that commit
-3. purges `cdn.jsdelivr.net/...@latest/...` and `...@vX.Y.Z/...`
-
-Manual equivalent: `./scripts/tag-and-purge-jsdelivr.sh`
+[`.github/workflows/validate.yml`](.github/workflows/validate.yml) validates the
+manifest and app-update pin. It does not create tags or publish/purge CDN state.
 
 ## Two sections, one home per file
 

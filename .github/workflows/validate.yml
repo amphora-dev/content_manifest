@@ -1,7 +1,4 @@
-# After each pin bump on main:
-# 1) validate the manifest
-# 2) cut a semver tag (jsDelivr only purges tags reliably — NOT @main)
-# 3) purge @latest so devices pick up the new pins without waiting ~12h
+# Validate manifest and app-update pins on every relevant change.
 name: validate
 
 on:
@@ -12,21 +9,18 @@ on:
       - "app_update.json"
       - "validate_manifest.py"
       - "test_validate_manifest.py"
-      - "scripts/**"
       - ".github/workflows/validate.yml"
   pull_request:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - run: python3 -m unittest -v
       - run: python3 validate_manifest.py
       - name: Validate app_update.json when present
@@ -51,73 +45,3 @@ jobs:
               raise SystemExit("sha256 must be 64 hex chars")
           print(f"ok app_update.json versionCode={data['versionCode']}")
           PY
-
-  # Tag + purge on main pushes and manual dispatch. Bot pushes from amphora CI
-  # often fail to schedule this workflow, so amphora also `gh workflow run`s it;
-  # without dispatch support here, @latest never advances for app_update.json.
-  # PRs stop at validate.
-  publish-cdn:
-    if: >-
-      github.ref == 'refs/heads/main' &&
-      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-    needs: validate
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          # Need a token that can push tags created by the workflow itself.
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Tag next semver patch
-        id: tag
-        run: |
-          set -euo pipefail
-          git fetch --tags --force
-          if git describe --exact-match --match 'v[0-9]*.[0-9]*.[0-9]*' HEAD >/dev/null 2>&1; then
-            NEXT="$(git describe --exact-match --match 'v[0-9]*.[0-9]*.[0-9]*' HEAD)"
-            echo "commit already tagged $NEXT"
-          else
-            LAST="$(git tag -l 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n1 || true)"
-            if [ -z "$LAST" ]; then
-              NEXT="v0.1.0"
-            else
-              NEXT="$(python3 -c 'import sys; m,n,p=map(int,sys.argv[1].lstrip("v").split(".",2)); print(f"v{m}.{n}.{p+1}")' "$LAST")"
-            fi
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git tag -a "$NEXT" -m "content pins $NEXT"
-            git push origin "refs/tags/$NEXT"
-            echo "created tag $NEXT"
-          fi
-          echo "tag=$NEXT" >> "$GITHUB_OUTPUT"
-
-      - name: Purge jsDelivr @latest and tagged URLs
-        run: |
-          set -euo pipefail
-          TAG="${{ steps.tag.outputs.tag }}"
-          # Public purge endpoint. Officially reliable for semver/@latest, not @main.
-          paths=(
-            "gh/amphora-dev/content_manifest@latest/content_manifest.json"
-            "gh/amphora-dev/content_manifest@${TAG}/content_manifest.json"
-          )
-          if [ -f app_update.json ]; then
-            paths+=(
-              "gh/amphora-dev/content_manifest@latest/app_update.json"
-              "gh/amphora-dev/content_manifest@${TAG}/app_update.json"
-            )
-          fi
-          for path in "${paths[@]}"; do
-            echo "purging https://cdn.jsdelivr.net/${path}"
-            curl -fsS "https://purge.jsdelivr.net/${path}" | tee /tmp/purge.json
-            echo
-          done
-          sleep 2
-          HDR="$(curl -fsSI "https://cdn.jsdelivr.net/gh/amphora-dev/content_manifest@latest/content_manifest.json" || true)"
-          echo "$HDR" | tr -d '\r' | grep -i '^x-jsd-version' || true
-          BODY_SHA="$(curl -fsS "https://cdn.jsdelivr.net/gh/amphora-dev/content_manifest@latest/content_manifest.json" | sha256sum | awk '{print $1}')"
-          GIT_SHA="$(git show "HEAD:content_manifest.json" | sha256sum | awk '{print $1}')"
-          echo "cdn sha=$BODY_SHA git sha=$GIT_SHA"
-          if [ "$BODY_SHA" != "$GIT_SHA" ]; then
-            echo "::warning::jsDelivr @latest body does not yet match HEAD; CDN may still be catching up"
-          fi
