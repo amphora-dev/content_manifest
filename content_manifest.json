@@ -67,9 +67,9 @@
     },
     {
       "assetPath": "fonts.tzst",
-      "sha256": "3d8f543d1d68bfeaa09e7275d5d0925acfd56bbd70afe5653b3518a7ed3d5ede",
-      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/pattern/fonts.tzst",
-      "size": 20484991
+      "sha256": "7dc95c80e98224232d3f4d37655e7736d8dc3dcdd34fec82740afc1da9049955",
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/pattern/fonts-windows-7dc95c80.tzst",
+      "size": 40148328
     },
     {
       "assetPath": "adrenotools/WN-Turnip-1.06-b_Axxx.zip",
