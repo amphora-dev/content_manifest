@@ -37,6 +37,17 @@
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/dxvk/Dxvk-3.0.2-gplasync-6b20f622a.wcp",
       "size": 8048148
     },
+    "dxvk_sarek": {
+      "assetPath": "Dxvk-sarek-1.11.0-async.wcp",
+      "sha256": "c6bb944a22f715b5cf2672e3521a1971d9443880207d6404e3a77a53f99453ea",
+      "version": "DXVK-1.11.0-async-sarek-0",
+      "kind": "WCP",
+      "contentType": "DXVK",
+      "verName": "1.11.0-async-sarek",
+      "verCode": 0,
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/dxvk/Dxvk-sarek-1.11.0-async.wcp",
+      "size": 3327300
+    },
     "vkd3d": {
       "assetPath": "Vkd3d-3.0.1-3b10bd7a7.wcp",
       "sha256": "849f533fd2c0a50ca3185afddb6d469797f3b29cff79a2d6959ce532f929e54c",
@@ -64,6 +75,12 @@
       "sha256": "90cab483a6137d4e1d37bf5213bebe554463868be098dfe94a178a966efac0bd",
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wrapper/wrapper-7eae6442f.tzst",
       "size": 670350
+    },
+    {
+      "assetPath": "graphics_driver/wrapper-leegao.tzst",
+      "sha256": "3eabf6fc53f3b738eb80e7f80e3b28f761a8cebaa62b7e6c1f05e0e1228a969d",
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wrapper/wrapper-leegao-3eabf6fc5.tzst",
+      "size": 3057352
     },
     {
       "assetPath": "fonts.tzst",
