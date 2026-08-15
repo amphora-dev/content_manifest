@@ -79,7 +79,7 @@
     {
       "assetPath": "graphics_driver/wrapper-leegao.tzst",
       "sha256": "3eabf6fc53f3b738eb80e7f80e3b28f761a8cebaa62b7e6c1f05e0e1228a969d",
-      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wrapper/wrapper-leegao-3eabf6fc5.tzst",
+      "remoteUrl": "https://raw.githubusercontent.com/WinNative-Emu/WinNative/48fe6b9b6fda36512a30950df255eed99e175de1/app/src/main/assets/graphics_driver/wrapper-leegao.tzst",
       "size": 3057352
     },
     {
