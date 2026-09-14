@@ -1,9 +1,9 @@
 {
-  "versionCode": 20000192,
-  "versionName": "0.1.0+192.4e28480b",
+  "versionCode": 20000221,
+  "versionName": "0.1.0+221.f4da4697",
   "apkUrl": "https://github.com/amphora-dev/amphora/releases/download/apk/amphora-debug.apk",
-  "sha256": "cfead149a2c12ec0075870698dfe0fada44b744ddfda8f9bfa65e31d040f4c08",
-  "size": 79444166,
+  "sha256": "2ae6931433897b8be0869efa65e9824f3281e5a9260987b88d1e157630742794",
+  "size": 79477591,
   "channel": "ci",
-  "notes": "CI 0.1.0+192.4e28480b (4e28480b)"
+  "notes": "CI 0.1.0+221.f4da4697 (f4da4697)"
 }
