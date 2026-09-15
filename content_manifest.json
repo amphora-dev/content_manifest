@@ -5,15 +5,15 @@
   "wcpCatalogUrl": "https://raw.githubusercontent.com/nicholasx417/WinNative-Components/main/default.json",
   "components": {
     "wine": {
-      "assetPath": "Proton-11.0-8e11ebfd9-x86_64.wcp",
-      "sha256": "7bc6561fb3d59136a7422de1114454dc1acfa35b776e5f00cf666a555f966eb2",
-      "version": "Proton-11.0-8e11ebfd9-x86_64-0",
+      "assetPath": "Proton-11.0-244bb3e73-x86_64.wcp",
+      "sha256": "699288eb080c02929c02da3f57926ade55c165679840779d54f11cadc41009c4",
+      "version": "Proton-11.0-244bb3e73-x86_64-0",
       "kind": "WCP",
       "contentType": "Proton",
-      "verName": "11.0-8e11ebfd9-x86_64",
+      "verName": "11.0-244bb3e73-x86_64",
       "verCode": 0,
-      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wine/Proton-11.0-8e11ebfd9-x86_64.wcp",
-      "size": 66406171
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wine/Proton-11.0-244bb3e73-x86_64.wcp",
+      "size": 66344430
     },
     "box64": {
       "assetPath": "Box64-0.4.5-0db8df775.wcp",
