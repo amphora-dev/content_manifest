@@ -6,14 +6,14 @@
   "components": {
     "wine": {
       "assetPath": "Proton-11.0-05ca3a658-x86_64.wcp",
-      "sha256": "707942e39f13c4625dbf1cb26eb05781ab089910b049453aad04b33d6a9dc8d6",
+      "sha256": "a878c64200ad3f6c8bfc0236de60ef3ada2e7a99a18890bbbc349e67075288e6",
       "version": "Proton-11.0-05ca3a658-x86_64-0",
       "kind": "WCP",
       "contentType": "Proton",
       "verName": "11.0-05ca3a658-x86_64",
       "verCode": 0,
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wine/Proton-11.0-05ca3a658-x86_64.wcp",
-      "size": 66340334
+      "size": 66339632
     },
     "box64": {
       "assetPath": "Box64-0.4.5-0db8df775.wcp",
