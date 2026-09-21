@@ -1,19 +1,19 @@
 {
-  "$comment": "Remote-only content pin file (NOT packaged into the APK). Fetched at runtime from GitHub main. components[] maps a ComponentId to a remote asset that ContentSource resolves; runtimeAssets[] are kernel-direct files that RuntimeAssetProvisioner puts under filesDir/runtime-assets/. A file belongs to exactly one of the two — graphics_driver/wrapper.tzst used to be in both and the copies drifted. imagefs CI rewrites components.rootfs and the wrapper runtimeAssets entry after each Release publish.",
+  "$comment": "Remote-only content pin file (NOT packaged into the APK). Fetched at runtime from GitHub main. components[] maps a ComponentId to a remote asset that ContentSource resolves; runtimeAssets[] are kernel-direct files that RuntimeAssetProvisioner puts under filesDir/runtime-assets/. A file belongs to exactly one of the two \u2014 graphics_driver/wrapper.tzst used to be in both and the copies drifted. imagefs CI rewrites components.rootfs and the wrapper runtimeAssets entry after each Release publish.",
   "version": 1,
   "source": "docs/04-ASSET-MANIFEST.md",
   "wcpCatalogUrl": "https://raw.githubusercontent.com/nicholasx417/WinNative-Components/main/default.json",
   "components": {
     "wine": {
       "assetPath": "Proton-11.0-05ca3a658-x86_64.wcp",
-      "sha256": "a878c64200ad3f6c8bfc0236de60ef3ada2e7a99a18890bbbc349e67075288e6",
+      "sha256": "90d2c2cfce0abe6b7507a315dbd647e1a5be392cd21bee0adfba6ff4f43446c0",
       "version": "Proton-11.0-05ca3a658-x86_64-0",
       "kind": "WCP",
       "contentType": "Proton",
       "verName": "11.0-05ca3a658-x86_64",
       "verCode": 0,
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/wine/Proton-11.0-05ca3a658-x86_64.wcp",
-      "size": 66339632
+      "size": 66339773
     },
     "box64": {
       "assetPath": "Box64-0.4.5-0db8df775.wcp",
