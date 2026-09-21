@@ -1,5 +1,5 @@
 {
-  "$comment": "Remote-only content pin file (NOT packaged into the APK). Fetched at runtime from GitHub main. components[] maps a ComponentId to a remote asset that ContentSource resolves; runtimeAssets[] are kernel-direct files that RuntimeAssetProvisioner puts under filesDir/runtime-assets/. A file belongs to exactly one of the two \u2014 graphics_driver/wrapper.tzst used to be in both and the copies drifted. imagefs CI rewrites components.rootfs and the wrapper runtimeAssets entry after each Release publish.",
+  "$comment": "Remote-only content pin file (NOT packaged into the APK). Fetched at runtime from GitHub main. components[] maps a ComponentId to a remote asset that ContentSource resolves; runtimeAssets[] are kernel-direct files that RuntimeAssetProvisioner puts under filesDir/runtime-assets/. A file belongs to exactly one of the two — graphics_driver/wrapper.tzst used to be in both and the copies drifted. imagefs CI rewrites components.rootfs and the wrapper runtimeAssets entry after each Release publish.",
   "version": 1,
   "source": "docs/04-ASSET-MANIFEST.md",
   "wcpCatalogUrl": "https://raw.githubusercontent.com/nicholasx417/WinNative-Components/main/default.json",
@@ -38,15 +38,15 @@
       "size": 8048148
     },
     "dxvk_sarek": {
-      "assetPath": "Dxvk-sarek-1.11.0-async.wcp",
-      "sha256": "c6bb944a22f715b5cf2672e3521a1971d9443880207d6404e3a77a53f99453ea",
+      "assetPath": "Dxvk-Sarek-async-1.11.wcp",
+      "sha256": "8e769dfcfe53224cde868e9b732bea7e02dfc2d32eb67971c8e25d22fac7d70c",
       "version": "DXVK-1.11.0-async-sarek-0",
       "kind": "WCP",
       "contentType": "DXVK",
       "verName": "1.11.0-async-sarek",
       "verCode": 0,
-      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/dxvk/Dxvk-sarek-1.11.0-async.wcp",
-      "size": 3327300
+      "remoteUrl": "https://github.com/nicholasx417/WinNative-Components/releases/download/Stable-Dxvk/Dxvk-Sarek-async-1.11.wcp",
+      "size": 3291880
     },
     "vkd3d": {
       "assetPath": "Vkd3d-3.0.1-3b10bd7a7.wcp",
