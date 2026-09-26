@@ -16,15 +16,15 @@
       "size": 66348074
     },
     "box64": {
-      "assetPath": "Box64-0.4.5-0db8df775.wcp",
-      "sha256": "cc15e5ae6c6dbf37bcc1cc900b78399b476e77a4b9681351d3788d046e9a24d3",
-      "version": "Box64-0.4.5-0db8df775-0",
+      "assetPath": "Box64-0.4.5-0db8df775-p07e67ded.wcp",
+      "sha256": "aa2ceec712f7509df0c6c1311bbcea2812c7820b771fa16e99916070f1f35d0a",
+      "version": "Box64-0.4.5-0db8df775-p07e67ded-0",
       "kind": "WCP",
       "contentType": "Box64",
-      "verName": "0.4.5-0db8df775",
+      "verName": "0.4.5-0db8df775-p07e67ded",
       "verCode": 0,
-      "size": 2699688,
-      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/box64/Box64-0.4.5-0db8df775.wcp"
+      "size": 2702336,
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/box64/Box64-0.4.5-0db8df775-p07e67ded.wcp"
     },
     "dxvk": {
       "assetPath": "Dxvk-3.0.2-gplasync-6b20f622a.wcp",
