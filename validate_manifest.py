@@ -37,7 +37,7 @@ COMPRESSIONS = {"zstd", "xz"}
 # Amphora's ContentComponent enum. The app skips component keys it does not
 # recognise so that adding one here cannot brick installed builds -- which means
 # a misspelled key is silent on the device and has to be caught here instead.
-KNOWN_COMPONENTS = {"rootfs", "wine", "box64", "dxvk", "vkd3d", "dxvk_sarek"}
+KNOWN_COMPONENTS = {"rootfs", "wine", "box64", "dxvk", "vkd3d", "dxvk_sarek", "dxvk_d3d89"}
 
 class Report:
     def __init__(self) -> None:

@@ -30,9 +30,11 @@ manifest and app-update pin. It does not create tags or publish/purge CDN state.
 
 - `components[]` — resolved by `ContentSource`; the keys are Amphora's
   `ContentComponent` enum (`rootfs`, `wine`, `box64`, `dxvk`, `dxvk_sarek`,
-  `vkd3d`). `dxvk_sarek` is the Vulkan 1.1/1.2 DXVK fork that devices on the
-  Leegao vendor-HAL path install instead of `dxvk`; both are pinned here because
-  which one a device needs is only known at launch.
+  `dxvk_d3d89`, `vkd3d`). `dxvk_sarek` is the Vulkan 1.1/1.2 DXVK fork that
+  devices whose guest adapter misses DXVK 3.0.2's requirements install instead of
+  `dxvk`; `dxvk_d3d89` (DXVK 2.6.2, imagefs `build-dxvk-d3d89`) supplies only
+  d3d8/d3d9 on the Qualcomm driver. All are pinned here because which one a
+  device needs is only known at launch.
 - `runtimeAssets[]` — kernel-direct files that `RuntimeAssetProvisioner` places
   under `filesDir/runtime-assets/<assetPath>`.
 

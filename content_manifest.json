@@ -48,6 +48,17 @@
       "remoteUrl": "https://github.com/nicholasx417/WinNative-Components/releases/download/Stable-Dxvk/Dxvk-Sarek-async-1.11.wcp",
       "size": 3291880
     },
+    "dxvk_d3d89": {
+      "assetPath": "Dxvk-2.6.2-9d6f54a1a.wcp",
+      "sha256": "e14915f221cc899210c9d631ec60316f1fde4490b9f694705ed7f516f5c28543",
+      "version": "DXVK-2.6.2-9d6f54a1a-0",
+      "kind": "WCP",
+      "contentType": "DXVK",
+      "verName": "2.6.2-9d6f54a1a",
+      "verCode": 0,
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/dxvk-d3d89/Dxvk-2.6.2-9d6f54a1a.wcp",
+      "size": 4371736
+    },
     "vkd3d": {
       "assetPath": "Vkd3d-3.0.1-3b10bd7a7.wcp",
       "sha256": "849f533fd2c0a50ca3185afddb6d469797f3b29cff79a2d6959ce532f929e54c",
