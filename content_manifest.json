@@ -155,13 +155,13 @@
     },
     {
       "assetPath": "aio-graphics-test/Graphics-Test-32bit.exe",
-      "sha256": "3048241c899b294e4f535d45554984c44d017b592c0c6a55b3778ecd87e29ca3",
+      "sha256": "3ec12333850c3043e5223d0d8e998495cd53a9aa86c832341f14308862c111a4",
       "remoteUrl": "https://cnb.cool/atowerlight/aio-graphics-test/-/releases/download/amphora/AIO-Graphics-Test-32bit.exe",
       "size": 4102352
     },
     {
       "assetPath": "aio-graphics-test/Graphics-Test-64bit.exe",
-      "sha256": "1b1c3d838094cfcd79c6373495ce82ea4bdff5d25b90543419dd31be5f0511d9",
+      "sha256": "f0f699bc8690b98991ca1f184e0f7c00f0f79645f484d9ea767f82780c3c5432",
       "remoteUrl": "https://cnb.cool/atowerlight/aio-graphics-test/-/releases/download/amphora/AIO-Graphics-Test-64bit.exe",
       "size": 3959954
     },
