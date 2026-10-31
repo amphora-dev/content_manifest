@@ -94,6 +94,12 @@
       "size": 3057352
     },
     {
+      "assetPath": "graphics_driver/mesa-wgl.tzst",
+      "sha256": "0098bff1c2006260088428eef7af5ca697ba3ba5fba7f2124c0804df0689ed96",
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/mesa-wgl-dev/mesa-wgl-26.2.0-s37fb93ab.tzst",
+      "size": 7487261
+    },
+    {
       "assetPath": "fonts.tzst",
       "sha256": "7dc95c80e98224232d3f4d37655e7736d8dc3dcdd34fec82740afc1da9049955",
       "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/pattern/fonts-windows-7dc95c80.tzst",
