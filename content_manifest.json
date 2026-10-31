@@ -96,7 +96,7 @@
     {
       "assetPath": "graphics_driver/mesa-wgl.tzst",
       "sha256": "0098bff1c2006260088428eef7af5ca697ba3ba5fba7f2124c0804df0689ed96",
-      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/mesa-wgl-dev/mesa-wgl-26.2.0-s37fb93ab.tzst",
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/mesa-wgl/mesa-wgl-26.2.0-s37fb93ab.tzst",
       "size": 7487261
     },
     {
