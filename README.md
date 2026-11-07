@@ -10,8 +10,8 @@ Remote pin file for Amphora. The app fetches
   retry on transient API failures or rate limiting.
 - **Updated by:** `amphora-dev/imagefs` CI after each successful Release publish
   (`components.rootfs`, `components.box64`, and the `runtimeAssets[]` entries for
-  `graphics_driver/wrapper.tzst` and `graphics_driver/mesa-wgl.tzst`, the latter
-  from `build-mesa-wgl`).
+  `graphics_driver/wrapper.tzst`, `graphics_driver/mesa-wgl.tzst` from
+  `build-mesa-wgl` and `adrenotools/turnip.zip` from `build-turnip`).
 
 ## App update pin
 
@@ -39,7 +39,9 @@ manifest and app-update pin. It does not create tags or publish/purge CDN state.
 - `runtimeAssets[]` — kernel-direct files that `RuntimeAssetProvisioner` places
   under `filesDir/runtime-assets/<assetPath>`.
   `graphics_driver/mesa-wgl.tzst` is Mesa's Windows `opengl32.dll` (zink +
-  softpipe) that every Amphora prefix links.
+  softpipe) that every Amphora prefix links. `adrenotools/turnip.zip` is the
+  self-built Mesa Turnip adrenotools package Amphora installs when the user
+  picks Turnip.
 
 A file belongs to exactly one of them. `graphics_driver/wrapper.tzst` was in
 both, and the copies drifted — the app then downloaded one wrapper build and

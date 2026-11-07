@@ -106,10 +106,10 @@
       "size": 40148328
     },
     {
-      "assetPath": "adrenotools/WN-Turnip-1.06-b_Axxx.zip",
-      "sha256": "c88c6ee2983f8d0814479f895e815e37fa4caa1e61020f4f1ac736026183f785",
-      "remoteUrl": "https://github.com/WinNative-Emu/Drivers/releases/download/v1.06/WN-Turnip-1.06-b_Axxx.zip",
-      "size": 2694674
+      "assetPath": "adrenotools/turnip.zip",
+      "sha256": "f832a3df35c2862a93ab7e15d4318243c13d6c4a8754b19004dfef4f57859014",
+      "remoteUrl": "https://github.com/amphora-dev/imagefs/releases/download/turnip-dev/turnip-26.2.6-s154a43da.zip",
+      "size": 2656386
     },
     {
       "assetPath": "wincomponents/wincomponents.json",
